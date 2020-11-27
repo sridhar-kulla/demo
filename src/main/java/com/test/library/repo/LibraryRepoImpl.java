@@ -32,14 +32,9 @@ public class LibraryRepoImpl implements LibraryRepo {
 
             while (scr.hasNext()) {
                  type=scr.next();
-                System.out.println(type);
                  isbn= Long.parseLong(scr.next());
-                System.out.println(isbn);
                  title=scr.next();
-                System.out.println(title);
                  author=scr.next();
-                System.out.println(author);
-
 
                 // Current line of book data's fields in: bookType, bookIsbn, bookTitle, bookAuthor
 
