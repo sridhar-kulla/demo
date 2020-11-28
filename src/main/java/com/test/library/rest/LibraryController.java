@@ -19,7 +19,8 @@ public class LibraryController{
 
     @GetMapping(value="/list-all-books",produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Book> listAllBooks(){
-        return libraryService.getBooks();
+        Collection<Book> books=libraryService.getBooks();
+        return books;
     }
 
 }
