@@ -6,13 +6,13 @@ public abstract class Book{
     private String author;
     private String type;
     private double lateFee;
+    private String notes;
 
     public Book(long isbn, String title, String author) {
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-        this.type = type;
-    }
+     }
 
     public double calculateLateFee(int numDaysLate) throws Exception {
        return lateFee;
@@ -48,5 +48,13 @@ public abstract class Book{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

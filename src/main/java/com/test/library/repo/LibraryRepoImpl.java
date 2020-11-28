@@ -15,7 +15,7 @@ public class LibraryRepoImpl implements LibraryRepo {
     public Collection<Book> getBooks() {
         Book book=null;
         Book localBook=null;
-        ArrayList<Book> listOfRecords=new ArrayList<>(5);
+        ArrayList<Book> listOfRecords=new ArrayList<>();
         String fileName="C:/Users/sridh/IdeaProjects/Library-Project/src/main/resources/Books.txt";
         Scanner input=null;
         String str=null;
@@ -45,10 +45,7 @@ public class LibraryRepoImpl implements LibraryRepo {
                          System.out.println(localBook.getIsbn() + " " + localBook.getTitle()+" "+localBook.getAuthor());
                      }
                  }
-
                  scr.close();
-
-                    // System.out.println(localBook.getIsbn() + " " + localBook.getTitle()+" "+localBook.getAuthor());
              }
 
         }

@@ -21,7 +21,7 @@ public class LibraryServiceImpl implements LibraryService{
     public Collection<Book> getBooks() {
         Collection<Book> books = this.libraryRepo.getBooks();
         double lateFee = 0.0;
-        int numDaysLate = 0;
+        int numberOfDaysLate = 0;
         Book book = null;
         Iterator<Book> booksIter = books.iterator();
         while (booksIter.hasNext()) {
@@ -29,7 +29,21 @@ public class LibraryServiceImpl implements LibraryService{
             if (book.getAuthor().equals("Tom Smith")) {
                 book.setAuthor(book.getAuthor() + "- CHECKED");
             }
+
+            if(book.getTitle().length()%2!=0)
+                numberOfDaysLate=-1;
+            else
+                numberOfDaysLate=book.getTitle().length();
+
+            try {
+                lateFee=book.calculateLateFee(numberOfDaysLate);
+                book.setNotes(String.valueOf(lateFee));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
+
         return books;
     }
 }
