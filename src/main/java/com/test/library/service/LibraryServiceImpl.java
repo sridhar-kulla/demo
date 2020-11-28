@@ -15,11 +15,11 @@ import java.util.Iterator;
 public class LibraryServiceImpl implements LibraryService{
 
     @Autowired
-    private LibraryRepoImpl libraryRepoImpl;
+    private LibraryRepo libraryRepo;
 
     @Override
     public Collection<Book> getBooks() {
-        Collection<Book> books = this.libraryRepoImpl.getBooks();
+        Collection<Book> books = this.libraryRepo.getBooks();
         double lateFee = 0.0;
         int numDaysLate = 0;
         Book book = null;
@@ -30,6 +30,6 @@ public class LibraryServiceImpl implements LibraryService{
                 book.setAuthor(book.getAuthor() + "- CHECKED");
             }
         }
-        return Collections.singleton(book);
+        return books;
     }
 }

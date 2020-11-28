@@ -15,7 +15,7 @@ public class LibraryRepoImpl implements LibraryRepo {
     public Collection<Book> getBooks() {
         Book book=null;
         Book localBook=null;
-        ArrayList<Book> listOfRecords=new ArrayList<>();
+        ArrayList<Book> listOfRecords=new ArrayList<>(5);
         String fileName="C:/Users/sridh/IdeaProjects/Library-Project/src/main/resources/Books.txt";
         Scanner input=null;
         String str=null;
@@ -37,17 +37,15 @@ public class LibraryRepoImpl implements LibraryRepo {
 
                      if (type.equals("FICTION")) {
                          localBook = new BookFiction(isbn, title, author);
-                         //listOfRecords.add(localBook);
                      } else if (type.equals("NONFICTION")) {
                          localBook = new BookNonFiction(isbn,title,author);
-                         //listOfRecords.add(localBook);
                      }
                      if (localBook != null) {
                          listOfRecords.add(localBook);
                          System.out.println(localBook.getIsbn() + " " + localBook.getTitle()+" "+localBook.getAuthor());
                      }
                  }
-                 listOfRecords.add(localBook);
+
                  scr.close();
 
                     // System.out.println(localBook.getIsbn() + " " + localBook.getTitle()+" "+localBook.getAuthor());
@@ -63,7 +61,7 @@ public class LibraryRepoImpl implements LibraryRepo {
         }
        //System.out.println(book.getIsbn() + " " + book.getTitle()+" "+book.getIsbn());
 
-            return Set.of(localBook);
+            return listOfRecords;
 
     }
 
